@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.full {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    justify-content: center;
+    background-color: gray;
+    border: 5px solid green;
+    background-position: center;
+    background-image: url('images/2d-game-background.jpg');
+}
+
+.arena {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.arena .character {
+    width: 200px;
+    height: 30%;
+    position: absolute;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+/* bullet classes */
+.bullet {
+    top: 60%;
+    left: 53%;
+    width: 100px;
+    display: none;
+    position: absolute;
+    transform: rotateY(180deg);
+}
+
+.bulletLeft {
+    left: 41%;
+    display: flex;
+    transform: rotateY(0deg);
+}
+
+.bulletRight {
+    left: 53%;
+    display: flex;
+    transform: rotateY(180deg);
+}
+
+
+/* end bullet classes */
+
+.attackBtn {
+    right: 5%;
+    width: 100px;
+    bottom: 3%;
+    height: 100px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    align-items: flex-end;
+    background-size: 150px;
+    border: 1px solid blue;
+    justify-content: flex-end;
+    background-position: center;
+    box-shadow: 0px 10px yellow;
+    background-image: url('images/icons/attack-icon.jpg');
+}
+
+.attackBtn:active {
+    bottom: 2%;
+    box-shadow: none;
+}
+
+.attackKnifeBtn {
+    right: 13%;
+    width: 100px;
+    bottom: 3%;
+    height: 100px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    align-items: flex-end;
+    background-size: 150px;
+    border: 1px solid blue;
+    justify-content: flex-end;
+    background-color: #d68b1a;
+    background-position: center;
+    box-shadow: 0px 10px yellow;
+    background-image: url('images/icons/knife-icon.png');
+}
+
+.attackKnifeBtn:active {
+    bottom: 2%;
+    box-shadow: none;
+}
+
+
+/* Character knife and gun */
+
+.droneGo{
+    height: 30%;
+    width: 170px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-size: contain;
+    transition: 15s ease all;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('images/drone/drone.png');
+}
+
+.droneBomb{
+    animation: droneBomb 2s ease;
+}
+
+.left{
+    left: 0%;
+    animation: left 15s infinite alternate;
+}
+
+.right{
+    right: 0%;
+    animation: right 15s infinite alternate;
+}
+
+/* keyframes any functions */
+
+@keyframes left{
+    20%{
+        bottom: 30%;
+    }
+    40%{
+        bottom: 20%;
+    }
+    80%{
+        bottom: 30%;
+    }
+    100%{
+        left: 40%;
+        bottom: 20%;
+        color: red;
+    }
+}
+@keyframes right {
+    20%{
+        bottom: 30%;
+    }
+    40%{
+        bottom: 20%;
+    }
+    80%{
+        bottom: 30%;
+    }
+    100%{
+        right: 40%;
+        bottom: 20%;
+    }
+}
+
+@keyframes droneBomb {
+    0%{
+        background-image: url('images/bomb/bomb-1.png');
+    }
+    20%{
+        background-image: url('images/bomb/bomb-2.png');
+    }
+    40%{
+        background-image: url('images/bomb/bomb-3.png');
+    }
+    60%{
+        background-image: url('images/bomb/bomb-4.png');
+    }
+    80%{
+        background-image: url('images/bomb/bomb-5.png');
+    }
+    100%{
+        background-image: url('images/bomb/bomb-6.png');
+    }
+}
+
+.loading-container {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(231, 212, 240);
+}
+
+.spinner {
+    height: 14rem;
+    width: 14rem;
+    border: 20px solid rgb(133, 106, 214);
+    border-left: 20px solid rgb(96, 47, 153);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin infinite 1.5s linear;
+}
+
+.spinner-text {
+    position: absolute;
+    font-size: 14px;
+    color: rgb(54, 54, 54);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.none{
+    display: none;
+}

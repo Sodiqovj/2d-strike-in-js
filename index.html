@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/icons/attack-icon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <title>JS 2d strike</title>
+</head>
+<body>
+    
+
+    <div class="full">
+
+        <h1 id="text"></h1>
+
+        <!-- joystick not -->
+        <div id="Div3"></div>
+        <!-- end joystick not -->
+
+
+        <!-- down cards -->
+            <div class="arena canvas">
+                <div class="character-heal"></div>
+                <img class="character" src="" alt="loading">
+                <img class="bullet" src="images/icons/bullet.png" alt="loading">
+            </div>
+        <!-- end down cards -->
+
+        <!-- attack button -->
+        <button type="button" class="attackKnifeBtn"></button>
+        <button type="button" class="attackBtn"></button>
+        <!-- end attack button -->
+    </div>
+
+    <!-- loader -->
+
+    <main class="loading-container">
+        <p class="spinner-text">
+            loading...
+        </p>
+        <div class="spinner"></div>
+    </main>
+
+    <!-- audios -->
+
+    <div class="audios">
+        <audio src="sounds/gun-sound.mp3" class="gun-sound"></audio>
+        <audio src="sounds/knife-sound.mp3" class="knife-sound"></audio>
+        <audio src="sounds/start-sound.mp3" class="start-sound"></audio>
+        <audio src="sounds/battle-sound.mp3" class="battle-sound"></audio>
+        <audio src="sounds/bomb-sound.mp3" class="bomb-sound"></audio>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
