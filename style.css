@@ -181,7 +181,7 @@ body {
 
 @keyframes droneBomb {
     0%{
-        background-image: url('images/bomb/bomb-1.png');
+       
     }
     20%{
         background-image: url('images/bomb/bomb-2.png');

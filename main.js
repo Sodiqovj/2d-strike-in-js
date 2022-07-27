@@ -22,7 +22,7 @@ let load = true
 let turn = true
 
 
-character.style.transition = 0
+character.style.transition = '0s !important'
 // [failed works]
 
 // battle sound [not play]!
@@ -33,7 +33,6 @@ character.style.transition = 0
 
 // controls character position
 window.addEventListener('keyup', function(event){
-    battleSound.play()
     switch (event.key) {
         case "ArrowLeft":
             characterStatus = 'left'
@@ -50,6 +49,7 @@ window.addEventListener('keyup', function(event){
 // checking Status
 let ckeckingStatus = setInterval(() => {
     if(gameStart==true){
+        battleSound.play()
              // stand if 
             if (characterStatus=='stand') {
                 character.src = characterStill
@@ -108,12 +108,18 @@ let loading = setInterval(() => {
 
 let createDonre =  setInterval(() => {
     if(turnDron==true&&gameStart==true){
+        setTimeout(() => {
+            turnDron = false
+        }, 100);
         let drone = document.createElement('div')
         arena.appendChild(drone)
         drone.classList.add('left')
         drone.classList.add('droneGo')
     }
     if(turnDron==false&&gameStart==true){
+        setTimeout(() => {
+            turnDron = true
+        }, 100);
         let drone = document.createElement('div')
         arena.appendChild(drone)
         drone.classList.add('right')
@@ -124,15 +130,54 @@ let createDonre =  setInterval(() => {
 let deadDrone = setInterval(() => {
     let drones = document.querySelectorAll('.droneGo')
     drones.forEach(function(item){
-        let itemLeft = parseInt(window.getComputedStyle(item).getPropertyValue('bottom'))
+        let itemLeft = parseInt(window.getComputedStyle(item).getPropertyValue('left'))
         let itemRight = parseInt(window.getComputedStyle(item).getPropertyValue('right'))
-        if (turn==false) {
-            if (itemLeft&&itemRight) {
-
+        drones.forEach(function(item2){
+            let itemLeft2 = parseInt(window.getComputedStyle(item2).getPropertyValue('right'))
+            let itemRight2 = parseInt(window.getComputedStyle(item2).getPropertyValue('right'))
+            if (turn==false&&itemLeft<itemLeft2&&characterStatus=='left') {
+                item.classList.add('dead')
+                setTimeout(() => {
+                    item.remove()
+                }, 2000);
             }
-        }
+            if (turn==false&&itemRight<itemRight2&&characterStatus=='right') {
+                item.classList.add('dead')
+                setTimeout(() => {
+                    item.remove()
+                }, 2000);
+            }
+        })
     })
-}, 10);
+}, 100);
+
+if (item.classList=='dead') {
+        item.style.backgroundImage = "url('images/bomb/bomb-1.png')"
+        setTimeout(() => {
+            if (item.classList=='dead') {
+                item.style.backgroundImage = "url('images/bomb/bomb-1.png')"
+                setTimeout(() => {
+                    item.style.backgroundImage = "url('images/bomb/bomb-1.png')"
+                }, 100);
+                setTimeout(() => {
+                    item.style.backgroundImage = "url('images/bomb/bomb-2.png')"
+                }, 300);
+                setTimeout(() => {
+                    item.style.backgroundImage = "url('images/bomb/bomb-3.png')"
+                }, 700);
+                setTimeout(() => {
+                    item.style.backgroundImage = "url('images/bomb/bomb-4.png')"
+                }, 900);
+                setTimeout(() => {
+                    item.style.backgroundImage = "url('images/bomb/bomb-5.png')"
+                }, 1300);
+                setTimeout(() => {
+                    item.style.backgroundImage = "url('images/bomb/bomb-6.png')"
+                }, 170);
+        }
+    }, 100);
+}
+
 
 
 
