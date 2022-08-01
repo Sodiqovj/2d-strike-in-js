@@ -64,6 +64,25 @@ body {
     transform: rotateY(180deg);
 }
 
+.new-bullet{
+    top: 60%;
+    width: 50px;
+    height: 50px;
+    transition: 1s;
+    position: absolute;
+    background-color: green;
+}
+
+.new-bullet-left{
+    left: 0%;
+    transition: 1s;
+}
+
+.new-bullet-right{
+    right: 0%;
+    transition: 1s;
+}
+
 
 /* end bullet classes */
 
@@ -115,6 +134,13 @@ body {
 }
 
 
+.text{
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    width: 500px !important;
+}
+
 /* Character knife and gun */
 
 .droneGo{
@@ -149,12 +175,15 @@ body {
 
 @keyframes left{
     20%{
+        left: 10%;
         bottom: 30%;
     }
     40%{
+        left: 20%;
         bottom: 20%;
     }
     80%{
+        left: 30%;
         bottom: 30%;
     }
     100%{
@@ -181,7 +210,7 @@ body {
 
 @keyframes droneBomb {
     0%{
-       
+        background-image: url('images/bomb/bomb-1.png');
     }
     20%{
         background-image: url('images/bomb/bomb-2.png');
